@@ -18,6 +18,12 @@ public class Usuario {
         this.password = password;
     }
 
+    public Usuario(String nombre, String correo, String password) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.password = password;
+    }
+
     public int getId_usuario() {
         return id_usuario;
     }
