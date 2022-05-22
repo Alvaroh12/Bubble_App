@@ -2,6 +2,7 @@ package com.alvaroh12.bubble;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         //deleteUsuario();
         //addUsuario();
         //editUsuario();
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
      public void getUsuario(){
