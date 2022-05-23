@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 
 import com.alvaroh12.bubble.Interface.UsuarioInterface;
@@ -23,17 +24,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                finish();
+            }
+        }, 2000);
+
         mJsonTextView = (TextView) findViewById(R.id.jsonText);
-        //getUsuario();
+        getUsuario();
         //getUsuarioById();
         //deleteUsuario();
         //addUsuario();
         //editUsuario();
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, LoginActivity.class);
+        //startActivity(intent);
+
+        //comprobar_usuario();
     }
 
      public void getUsuario(){
@@ -70,6 +82,43 @@ public class MainActivity extends AppCompatActivity {
              }
          });
      }
+
+//    public void comprobar_usuario(){
+
+//       String CorreoEntrada = "alvarohp19@gmail.com";
+//       String PasswordEntrada = "admin";
+
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("http://192.168.1.135:8080/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+
+//        UsuarioInterface usuarioInterface = retrofit.create(UsuarioInterface.class);
+//        Call<List<Usuario>> call = usuarioInterface.getUser();
+//        call.enqueue(new Callback<List<Usuario>>() {
+//            @Override
+//            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
+//                if(!response.isSuccessful()){
+//                    mJsonTextView.setText("Código: " + response.code());
+//                    return;
+//                }
+//                List<Usuario> listUsers = response.body();
+
+//                for (Usuario u:listUsers){
+//                    if (u.getCorreo().equalsIgnoreCase(CorreoEntrada)&&u.getPassword().equalsIgnoreCase(PasswordEntrada)){
+//                        mJsonTextView.append("USUARIO ENCONTRADO + \n");
+//                    }else{
+//                        mJsonTextView.append("USUARIO NO ENCONTRADO \n");
+//                    }
+//                }
+//            }
+
+//            @Override
+//            public void onFailure(Call<List<Usuario>> call, Throwable t) {
+//                mJsonTextView.setText(t.getMessage());
+//            }
+//        });
+//   }
 
      public void getUsuarioById(){
 

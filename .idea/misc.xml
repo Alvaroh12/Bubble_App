@@ -7,8 +7,10 @@
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/button_bg.xml" value="0.104" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/dit_text_bg.xml" value="0.104" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/splash.xml" value="0.139" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/vie_bp.xml" value="0.104" />
-        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_introductoryactivity.xml" value="0.2" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/login_tab_fragment.xml" value="0.22" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/signup_tab_fragment.xml" value="0.19895833333333332" />
