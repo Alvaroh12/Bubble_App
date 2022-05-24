@@ -95,7 +95,7 @@ public class LoginTabFragment extends Fragment {
                 }
 
                 if (encontrado){
-                    Intent intent = new Intent(email.getContext(), MainActivity.class);
+                    Intent intent = new Intent(email.getContext(), HomeActivity.class);
                     startActivity(intent);
                 }else{
 

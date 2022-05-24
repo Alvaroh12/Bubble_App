@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         }, 2000);
 
         mJsonTextView = (TextView) findViewById(R.id.jsonText);
-        getUsuario();
+        //getUsuario();
         //getUsuarioById();
         //deleteUsuario();
         //addUsuario();
