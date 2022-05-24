@@ -88,16 +88,20 @@ public class LoginTabFragment extends Fragment {
 
                 List<Usuario> listUsers = response.body();
                 boolean encontrado=false;
+                String userName = "";
+
                 for (Usuario u:listUsers){
                     if (u.getCorreo().equals(correo)&&u.getPassword().equals(contra)){
+                        userName=u.getNombre();
                         encontrado=true;
                     }
                 }
 
                 if (encontrado){
                     Intent intent = new Intent(email.getContext(), HomeActivity.class);
+                    intent.putExtra("usuario",userName );
                     startActivity(intent);
-                }else{
+                }else{//decir que usuario no encontrado
 
                 }
 

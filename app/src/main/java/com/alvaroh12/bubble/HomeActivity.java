@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,10 +23,19 @@ public class HomeActivity extends AppCompatActivity{
     ArrayList<DynamicRVModel> items = new ArrayList<>();
     DynamicRVAdapter dynamicRVAdapter;
 
+    TextView saludo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        saludo = (TextView) findViewById(R.id.nombreUser);
+
+        String nombre = getIntent().getStringExtra("usuario");
+        saludo.setText(nombre);
+        Toast.makeText(this, "Usuario: " + nombre, Toast.LENGTH_LONG).show();
+
 
         item.add(new StaticRvModel(R.drawable.arte, "Arte y Diseño"));
         item.add(new StaticRvModel(R.drawable.traduccion, "Traducción"));
