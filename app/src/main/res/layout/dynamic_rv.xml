@@ -8,8 +8,9 @@
     android:id="@+id/constraintLayout">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/imageIcon"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:src="@drawable/bubble_icon"
         android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,10 +21,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
-        android:layout_height="90dp"
+        android:layout_height="100dp"
         android:elevation="3dp"
         app:layout_constraintWidth_percent=".9"
-
+        android:layout_marginBottom="5dp"
         android:background="@drawable/dynamic_rv_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +47,7 @@
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <TextView
-            android:id="@+id/descripcion"
+            android:id="@+id/categoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Detalles"
@@ -58,7 +59,30 @@
             app:layout_constraintStart_toStartOf="@+id/tipoOferta"
             app:layout_constraintTop_toBottomOf="@+id/tipoOferta"></TextView>
 
+        <TextView
+            android:id="@+id/usuarioOferta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/tipoOferta"
+            app:layout_constraintTop_toBottomOf="@+id/categoria"
+            app:layout_constraintVertical_bias="0"></TextView>
 
+        <TextView
+            android:id="@+id/precio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/tipoOferta"
+            app:layout_constraintTop_toBottomOf="@+id/usuarioOferta"></TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

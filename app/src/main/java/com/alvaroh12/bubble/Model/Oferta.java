@@ -7,17 +7,19 @@ public class Oferta {
     private String descripcion;
     private double precio;
     private int id_usuario;
+    private String categoria;
 
     public void Oferta(){
 
     }
 
-    public Oferta(int id_oferta, String tipo_oferta, String descripcion, double precio, int id_usuario) {
+    public Oferta(int id_oferta, String tipo_oferta, String descripcion, double precio, int id_usuario, String categoria) {
         this.id_oferta = id_oferta;
         this.tipo_oferta = tipo_oferta;
         this.descripcion = descripcion;
         this.precio = precio;
         this.id_usuario = id_usuario;
+        this.categoria = categoria;
     }
 
     public int getId_oferta() {
@@ -60,4 +62,11 @@ public class Oferta {
         this.id_usuario = id_usuario;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 }

@@ -20,7 +20,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mJsonTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        mJsonTextView = (TextView) findViewById(R.id.jsonText);
         //getUsuario();
         //getUsuarioById();
         //deleteUsuario();
@@ -44,14 +42,13 @@ public class MainActivity extends AppCompatActivity {
         //editUsuario();
         //Intent intent = new Intent(this, LoginActivity.class);
         //startActivity(intent);
-
         //comprobar_usuario();
     }
 
      public void getUsuario(){
 
          Retrofit retrofit = new Retrofit.Builder()
-                 .baseUrl("http://192.168.1.135:8080/")
+                 .baseUrl("http://192.168.1.139:8080/")
                  .addConverterFactory(GsonConverterFactory.create())
                  .build();
 
@@ -61,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
              @Override
              public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                  if(!response.isSuccessful()){
-                     mJsonTextView.setText("Código: " + response.code());
                      return;
                  }
                  List<Usuario> listUsers = response.body();
@@ -72,13 +68,11 @@ public class MainActivity extends AppCompatActivity {
                      content+="Nombre: " + u.getNombre() + "\n";
                      content+="Correo: " + u.getCorreo() + "\n";
                      content+="Password: " + u.getPassword() + "\n\n";
-                     mJsonTextView.append(content);
                  }
              }
 
              @Override
              public void onFailure(Call<List<Usuario>> call, Throwable t) {
-                mJsonTextView.setText(t.getMessage());
              }
          });
      }
@@ -125,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         int id = 2;
 
          Retrofit retrofit = new Retrofit.Builder()
-                 .baseUrl("http://192.168.1.135:8080/")
+                 .baseUrl("http://192.168.1.139:8080/")
                  .addConverterFactory(GsonConverterFactory.create())
                  .build();
 
@@ -135,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
              @Override
              public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                  if(!response.isSuccessful()){
-                     mJsonTextView.setText("Código: " + response.code());
                      return;
                  }
                  List<Usuario> listUsers = response.body();
@@ -146,20 +139,18 @@ public class MainActivity extends AppCompatActivity {
                      content+="Nombre: " + u.getNombre() + "\n";
                      content+="Correo: " + u.getCorreo() + "\n";
                      content+="Password: " + u.getPassword() + "\n\n";
-                     mJsonTextView.append(content);
                  }
              }
 
              @Override
              public void onFailure(Call<List<Usuario>> call, Throwable t) {
-                 mJsonTextView.setText(t.getMessage());
              }
          });
      }
 
      public void deleteUsuario(){
          Retrofit retrofit = new Retrofit.Builder()
-                 .baseUrl("http://192.168.1.135:8080/")
+                 .baseUrl("http://192.168.1.139:8080/")
                  .addConverterFactory(GsonConverterFactory.create())
                  .build();
 
@@ -169,18 +160,15 @@ public class MainActivity extends AppCompatActivity {
              @Override
              public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                  if(!response.isSuccessful()){
-                     mJsonTextView.setText("Código: " + response.code());
                      return;
                  }
 
                  if(response.isSuccessful()){
-                     mJsonTextView.setText("Dato eliminado: " + response.code());
                  }
              }
 
              @Override
              public void onFailure(Call<List<Usuario>> call, Throwable t) {
-                 mJsonTextView.setText(t.getMessage());
              }
          });
      }
@@ -189,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         Usuario user = new Usuario("Nombre","Correo", "Pasword" );
 
          Retrofit retrofit = new Retrofit.Builder()
-                 .baseUrl("http://192.168.1.135:8080/")
+                 .baseUrl("http://192.168.1.139:8080/")
                  .addConverterFactory(GsonConverterFactory.create())
                  .build();
 
@@ -199,18 +187,15 @@ public class MainActivity extends AppCompatActivity {
              @Override
              public void onResponse(Call call, Response response) {
                  if(!response.isSuccessful()){
-                     mJsonTextView.setText("Código: " + response.code());
                      return;
                  }
 
                  if(response.isSuccessful()){
-                     mJsonTextView.setText("Usuario Agregado");
                  }
              }
 
              @Override
              public void onFailure(Call call, Throwable t) {
-                 mJsonTextView.setText(t.getMessage());
              }
          });
 
@@ -220,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
          Usuario user = new Usuario(7,"LOL","Mod", "Mod" );
 
          Retrofit retrofit = new Retrofit.Builder()
-                 .baseUrl("http://192.168.1.135:8080/")
+                 .baseUrl("http://192.168.1.139:8080/")
                  .addConverterFactory(GsonConverterFactory.create())
                  .build();
 
@@ -230,18 +215,15 @@ public class MainActivity extends AppCompatActivity {
              @Override
              public void onResponse(Call call, Response response) {
                  if(!response.isSuccessful()){
-                     mJsonTextView.setText("Código: " + response.code());
                      return;
                  }
 
                  if(response.isSuccessful()){
-                     mJsonTextView.setText("Usuario Modificado: " + response.code());
                  }
              }
 
              @Override
              public void onFailure(Call call, Throwable t) {
-                 mJsonTextView.setText(t.getMessage());
              }
          });
      }

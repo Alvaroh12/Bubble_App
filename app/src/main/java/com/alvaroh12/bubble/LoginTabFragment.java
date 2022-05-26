@@ -14,9 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.alvaroh12.bubble.Interface.UsuarioInterface;
 import com.alvaroh12.bubble.Model.Usuario;
-import com.alvaroh12.bubble.R;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
+
 
 import java.util.List;
 
@@ -70,12 +68,11 @@ public class LoginTabFragment extends Fragment {
 
 
     public void comprobarUsuario(){
-
         String contra = password.getText().toString().trim();
         String correo = email.getText().toString().trim();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.135:8080/")
+                .baseUrl("http://192.168.1.136:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -89,27 +86,35 @@ public class LoginTabFragment extends Fragment {
                 List<Usuario> listUsers = response.body();
                 boolean encontrado=false;
                 String userName = "";
+                int id_user = 0;
 
-                for (Usuario u:listUsers){
-                    if (u.getCorreo().equals(correo)&&u.getPassword().equals(contra)){
-                        userName=u.getNombre();
-                        encontrado=true;
+                if (!correo.isEmpty() && !contra.isEmpty()) {
+                    for (Usuario u:listUsers){
+                        if (u.getCorreo().equals(correo)&&u.getPassword().equals(contra)){
+                            userName=u.getNombre();
+                            id_user=u.getId_usuario();
+                            encontrado=true;
+                        }
                     }
-                }
 
-                if (encontrado){
-                    Intent intent = new Intent(email.getContext(), HomeActivity.class);
-                    intent.putExtra("usuario",userName );
-                    startActivity(intent);
-                }else{//decir que usuario no encontrado
+                    if (encontrado){
+                        Intent intent = new Intent(email.getContext(),PrincipalActivity.class);
+                        intent.putExtra("usuario",userName );
+                        intent.putExtra("id_user", id_user);
+                        startActivity(intent);
 
+                    }else{//decir que usuario no encontrado
+                        Toast.makeText(email.getContext(), "Correo o Contraseña erróneos", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(email.getContext(), "Introduzca Correo y Contraseña", Toast.LENGTH_SHORT).show();
                 }
 
             }
 
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
-
+                Toast.makeText(email.getContext(), "ERROORRR", Toast.LENGTH_SHORT).show();
             }
         });
 
