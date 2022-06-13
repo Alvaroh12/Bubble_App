@@ -1,6 +1,7 @@
 package com.alvaroh12.bubble;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +14,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alvaroh12.bubble.Interface.UpdateRecyclerView;
+
 import java.util.ArrayList;
 
 public class StaticRvAdapter extends RecyclerView.Adapter<StaticRvAdapter.StaticRVViewHolder> implements View.OnClickListener{
 
     private ArrayList<StaticRvModel> items;// Puedo cambiar el <> por <Usuario>
     private View.OnClickListener listener;
+
 
 
     public StaticRvAdapter(ArrayList<StaticRvModel> items) {

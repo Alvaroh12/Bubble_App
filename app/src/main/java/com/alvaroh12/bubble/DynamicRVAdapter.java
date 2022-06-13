@@ -11,16 +11,21 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 public class DynamicRVAdapter extends  RecyclerView.Adapter<DynamicRVAdapter.DynamicRVViewHolder> implements View.OnClickListener{
 
-    ArrayList<DynamicRVModel> items;
+    List<DynamicRVModel> items;
     private View.OnClickListener listener;
 
-    public DynamicRVAdapter(ArrayList<DynamicRVModel> items) {
+    public DynamicRVAdapter(List<DynamicRVModel> items) {
         this.items = items;
 
+    }
+
+    public void setFilteredList(List<DynamicRVModel>dynamicRVModelList){
+        this.items=dynamicRVModelList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -55,7 +60,6 @@ public class DynamicRVAdapter extends  RecyclerView.Adapter<DynamicRVAdapter.Dyn
         }else if(currentItem.getCategoria().equalsIgnoreCase("redes sociales")){
             holder.icon.setImageResource(R.drawable.redes_sociales);
         }
-
 
 
     }

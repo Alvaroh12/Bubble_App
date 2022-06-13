@@ -21,6 +21,9 @@ public interface OfertaInterface {
     @GET("oferta/listar/{id}")
     Call <List<Oferta>> getOfertaById(@Path("id")int id_User);
 
+    @GET("oferta/listar/{id}/{categoria}")
+    Call <List<DynamicRVModel>> getOfertaByIdCategoria(@Path("id")int id_User, @Path("categoria")String categoria);
+
     @GET("oferta/listarOU/{id}")
     Call <List<DynamicRVModel>> getOfertaUsuario(@Path("id")int id_User);
 

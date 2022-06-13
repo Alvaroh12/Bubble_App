@@ -7,6 +7,8 @@ public class DynamicRVModel {
     String nombre;
     double precio;
 
+
+
     public DynamicRVModel(String tipo_oferta, String categoria, double precio, String nombre) {
         this.tipo_oferta = tipo_oferta;
         this.categoria = categoria;
