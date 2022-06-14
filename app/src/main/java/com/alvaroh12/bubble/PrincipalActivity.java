@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -25,8 +26,8 @@ public class PrincipalActivity extends AppCompatActivity implements DrawerAdapte
     private static final int POS_CLOSE = 0;
     private static final int POS_HOME = 1;
     private static final int POS_MYPROFILE = 2;
-    private static final int POS_ABOUT_US = 3;
-    private static final int POS_LOGOUT = 5;
+    //private static final int POS_ABOUT_US = 3;
+    private static final int POS_LOGOUT = 4;
 
     private String[]screenTitles;
     private Drawable[]screenIcons;
@@ -47,17 +48,6 @@ public class PrincipalActivity extends AppCompatActivity implements DrawerAdapte
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //slidingRootNav = new SlidingRootNavBuilder(this)
-        //        .withDragDistance(180)
-        //        .withRootViewScale(0.75f)
-        //        .withRootViewElevation(25)
-        //        .withToolbarMenuToggle(toolbar)
-        //        .withMenuOpened(false)
-        //        .withContentClickableWhenMenuOpened(false)
-        //        .withSavedState(savedInstanceState)
-        //        .withMenuLayout(R.layout.drawer_menu)
-        //        .inject();
-
         slidingRootNav = new SlidingRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
                 .withMenuOpened(false)
@@ -73,8 +63,8 @@ public class PrincipalActivity extends AppCompatActivity implements DrawerAdapte
                 createItemFor(POS_CLOSE),
                 createItemFor(POS_HOME).setCheked(true),
                 createItemFor(POS_MYPROFILE),
-                createItemFor(POS_ABOUT_US),
-                new SpaceItem(260),
+                //createItemFor(POS_ABOUT_US),
+                //new SpaceItem(390),
                 createItemFor(POS_LOGOUT)
         ));
         adapter.setListener(this);
@@ -140,14 +130,19 @@ public class PrincipalActivity extends AppCompatActivity implements DrawerAdapte
         }
         else if(position==POS_MYPROFILE){
             ProfileFragment profile = new ProfileFragment();
+            Bundle args = new Bundle();
+            args.putInt("id_user", id_user);
+            args.putString("name", nombre);
+            profile.setArguments(args);
             transaction.replace(R.id.container, profile);
         }
-        else if(position==POS_ABOUT_US){
-            HomeFragment homeFragment = new HomeFragment();
-            transaction.replace(R.id.container, homeFragment);
-        }
+        //else if(position==POS_ABOUT_US){
+        //    HomeFragment homeFragment = new HomeFragment();
+        //    transaction.replace(R.id.container, homeFragment);
+        //}
         else if(position==POS_LOGOUT){
             finish();
+
         }
         slidingRootNav.closeMenu();
         transaction.addToBackStack(null);
@@ -155,10 +150,4 @@ public class PrincipalActivity extends AppCompatActivity implements DrawerAdapte
 
     }
 
-    public void recoger(){
-
-
-
-
-    }
 }

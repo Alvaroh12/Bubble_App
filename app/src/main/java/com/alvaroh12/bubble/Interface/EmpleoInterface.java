@@ -23,8 +23,8 @@ public interface EmpleoInterface {
     @POST("empleo/agregar")
     Call <Void> agregarEmpleo(@Body Empleo empleo);
 
-    @POST("empleo/actualizar/{id}")
-    Call <Void> editEmpleo(@Path("id") int id_empleo,@Body Empleo empleo);
+    @POST("empleo/actualizar/{id}/{aceptado}")
+    Call <Void> editEmpleo(@Path("id") int id_empleo,@Path("aceptado") int aceptado);
 
     @DELETE("empleo/eliminar/{id}")
     Call <Void> deleteEmpleo(@Path("id") int id_empleo);

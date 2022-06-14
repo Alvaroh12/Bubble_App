@@ -18,7 +18,6 @@ public class LoginActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager2 viewPager2;
-    FloatingActionButton facebook, google, twitter;
 
     LoginAdapter loginAdapter;
 
@@ -29,9 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         viewPager2 = (ViewPager2) findViewById(R.id.view_pager);
-        facebook = (FloatingActionButton) findViewById(R.id.fab_facebook);
-        google = (FloatingActionButton) findViewById(R.id.fab_google);
-        twitter = (FloatingActionButton) findViewById(R.id.fab_twitter);
+
 
 
         loginAdapter = new LoginAdapter(getSupportFragmentManager(), getLifecycle());
@@ -54,19 +51,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         }).attach();
 
-        facebook.setTranslationY(300);
-        google.setTranslationY(300);
-        twitter.setTranslationY(300);
+
         tabLayout.setTranslationY(300);
 
-        facebook.setAlpha(v);
-        google.setAlpha(v);
-        twitter.setAlpha(v);
+
         tabLayout.setAlpha(v);
 
-        facebook.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
-        google.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(600).start();
-        twitter.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(800).start();
+
         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
 
 

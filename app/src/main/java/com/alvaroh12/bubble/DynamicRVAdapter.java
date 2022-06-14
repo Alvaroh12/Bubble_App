@@ -15,16 +15,17 @@ import java.util.List;
 
 public class DynamicRVAdapter extends  RecyclerView.Adapter<DynamicRVAdapter.DynamicRVViewHolder> implements View.OnClickListener{
 
-    List<DynamicRVModel> items;
+    List<DynamicRVModel> item;
     private View.OnClickListener listener;
 
     public DynamicRVAdapter(List<DynamicRVModel> items) {
-        this.items = items;
+        this.item = items;
+        notifyDataSetChanged();
 
     }
 
     public void setFilteredList(List<DynamicRVModel>dynamicRVModelList){
-        this.items=dynamicRVModelList;
+        this.item=dynamicRVModelList;
         notifyDataSetChanged();
     }
 
@@ -41,7 +42,7 @@ public class DynamicRVAdapter extends  RecyclerView.Adapter<DynamicRVAdapter.Dyn
     @Override
     public void onBindViewHolder(@NonNull DynamicRVViewHolder holder, int position) {
 
-        DynamicRVModel currentItem = items.get(position);
+        DynamicRVModel currentItem = item.get(position);
         holder.textView.setText(currentItem.getTipo_oferta());
         holder.textView2.setText("Categoria: " + currentItem.getCategoria());
         holder.textView3.setText("Usuario: " + currentItem.getNombre());
@@ -61,12 +62,11 @@ public class DynamicRVAdapter extends  RecyclerView.Adapter<DynamicRVAdapter.Dyn
             holder.icon.setImageResource(R.drawable.redes_sociales);
         }
 
-
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return item.size();
     }
 
     public void setOnClickListener(View.OnClickListener listener){
@@ -92,7 +92,6 @@ public class DynamicRVAdapter extends  RecyclerView.Adapter<DynamicRVAdapter.Dyn
 
         public DynamicRVViewHolder(@NonNull View itemView) {
             super(itemView);
-            //imageView = (ImageView) itemView.findViewById(R.id.image);
             textView = (TextView) itemView.findViewById(R.id.tipoOferta);
             textView2 = (TextView) itemView.findViewById(R.id.categoria);
             textView3 = (TextView) itemView.findViewById(R.id.usuarioOferta);

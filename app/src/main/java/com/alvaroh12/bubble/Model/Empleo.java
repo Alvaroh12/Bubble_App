@@ -23,6 +23,16 @@ public class Empleo {
         this.id_usuario_oferente = id_usuario_oferente;
     }
 
+    public Empleo(int isAceptado, int isCancelado, double id_oferta, int id_usuario_comprador,
+                  int id_usuario_oferente) {
+        this.isAceptado = isAceptado;
+        this.isCancelado = isCancelado;
+        this.id_oferta = id_oferta;
+        this.id_usuario_comprador = id_usuario_comprador;
+        this.id_usuario_oferente = id_usuario_oferente;
+    }
+
+
     public int getId_empleo() {
         return id_empleo;
     }

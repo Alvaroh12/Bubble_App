@@ -22,6 +22,7 @@ public class Oferta {
         this.categoria = categoria;
     }
 
+
     public int getId_oferta() {
         return id_oferta;
     }

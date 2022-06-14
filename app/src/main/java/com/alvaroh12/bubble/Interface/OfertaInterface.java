@@ -2,6 +2,7 @@ package com.alvaroh12.bubble.Interface;
 
 
 import com.alvaroh12.bubble.DynamicRVModel;
+import com.alvaroh12.bubble.DynamicRVModelCompra;
 import com.alvaroh12.bubble.Model.Oferta;
 
 import java.util.List;
@@ -26,6 +27,15 @@ public interface OfertaInterface {
 
     @GET("oferta/listarOU/{id}")
     Call <List<DynamicRVModel>> getOfertaUsuario(@Path("id")int id_User);
+
+    @GET("oferta/listarMOU/{id}")
+    Call <List<DynamicRVModel>> getMisOfertaUsuario(@Path("id")int id_User);
+
+    @GET("oferta/listarOUE/{id}")
+    Call <List<DynamicRVModelCompra>> getOfertaUsuarioEmpleo(@Path("id")int id_User);
+
+    @GET("oferta/listarOUEM/{id}")
+    Call <List<DynamicRVModelCompra>> getOfertaUsuarioEmpleoMe(@Path("id")int id_User);
 
     @POST("oferta/agregar")
     Call <Void> agregarOferta(@Body Oferta user);

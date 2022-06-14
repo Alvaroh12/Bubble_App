@@ -1,9 +1,12 @@
 package com.alvaroh12.bubble;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +38,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<StaticRvModel> item = new ArrayList<>();
 
 
-    private ArrayList<DynamicRVModel> items = new ArrayList<>();
+    private ArrayList<DynamicRVModel>items;
     private DynamicRVAdapter dynamicRVAdapter;
 
 
@@ -44,9 +47,14 @@ public class HomeFragment extends Fragment {
     String nombre;
     int id_user = 0;
 
+    ImageView add;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstancedState){
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
+        add = root.findViewById(R.id.addOferta);
+
+        items = new ArrayList<>();
 
         RecyclerView drv = root.findViewById(R.id.rv_2);
         searchView = root.findViewById(R.id.search);
@@ -63,6 +71,7 @@ public class HomeFragment extends Fragment {
                 return false;
             }
         });
+
 
         saludo = (TextView) root.findViewById(R.id.nombreUser);
 
@@ -81,12 +90,15 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(root.getContext(),"Selección: "+item.get
                         (recyclerView.getChildAdapterPosition(v)).getTxt(),Toast.LENGTH_SHORT).show();
 
+                Toast.makeText(recyclerView.getContext(), "aqui 1: " + items.size(), Toast.LENGTH_SHORT);
+
                         seleccionOfertas(items, id_user,
                                 item.get(recyclerView.getChildAdapterPosition(v)).getTxt()
                                 , root, drv, v);
                 dynamicRVAdapter.setFilteredList(items);
-                dynamicRVAdapter.notifyDataSetChanged();
+                //dynamicRVAdapter.notifyDataSetChanged();//
 
+                Toast.makeText(recyclerView.getContext(), "aqui 2: " + items.size(), Toast.LENGTH_SHORT);
 
             }
 
@@ -103,12 +115,39 @@ public class HomeFragment extends Fragment {
         dynamicRVAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(root.getContext(),"Selección: "+items.get
-                        (drv.getChildAdapterPosition(v)).getNombre(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(root.getContext(),"Selección: "+items.get
+                //        (drv.getChildAdapterPosition(v)).getId_oferta(),Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(root.getContext(),CompraActivity.class);
+                intent.putExtra("id_oferta",items.get(drv.getChildAdapterPosition(v)).getId_oferta());
+                intent.putExtra("tipo_oferta",items.get(drv.getChildAdapterPosition(v)).getTipo_oferta());
+                intent.putExtra("categoria",items.get(drv.getChildAdapterPosition(v)).getCategoria());
+                intent.putExtra("descripcion",items.get(drv.getChildAdapterPosition(v)).getDescripcion());
+                intent.putExtra("precio",items.get(drv.getChildAdapterPosition(v)).getPrecio());
+                intent.putExtra("nombreOferente",items.get(drv.getChildAdapterPosition(v)).getNombre());
+                intent.putExtra("correoOferente",items.get(drv.getChildAdapterPosition(v)).getCorreo());
+                intent.putExtra("idOferente",items.get(drv.getChildAdapterPosition(v)).getId_usuario());
+
+                intent.putExtra("id_user", id_user);
+                intent.putExtra("name", nombre);
+                startActivity(intent);
+
+
             }
         });
         drv.setLayoutManager(new LinearLayoutManager(root.getContext(), LinearLayoutManager.VERTICAL, false));
-        drv.setAdapter(dynamicRVAdapter); drv.invalidate();
+        drv.setAdapter(dynamicRVAdapter);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(saludo.getContext(), AddOfertaActivity.class);
+                intent.putExtra("id_user", id_user);
+                intent.putExtra("name", nombre);
+                startActivity(intent);
+            }
+        });
+
 
         return  root;
     }
@@ -130,8 +169,9 @@ public class HomeFragment extends Fragment {
 
     public void recibirOfertas(ArrayList<DynamicRVModel> listaOfertas, int id_user){
 
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.140:8080/")
+                .baseUrl("http://192.168.1.134:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -145,6 +185,8 @@ public class HomeFragment extends Fragment {
                 for (DynamicRVModel u:listUsers){
                     listaOfertas.add(u);
                 }
+                dynamicRVAdapter.notifyDataSetChanged();
+                staticRvAdapter.notifyDataSetChanged();
 
             }
 
@@ -159,7 +201,7 @@ public class HomeFragment extends Fragment {
     public void recibirOfertasByCategoria(ArrayList<DynamicRVModel> listaOfertas, int id_user, String categoria){
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.140:8080/")
+                .baseUrl("http://192.168.1.134:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -173,6 +215,8 @@ public class HomeFragment extends Fragment {
                 for (DynamicRVModel u:listUsers){
                     listaOfertas.add(u);
                 }
+                dynamicRVAdapter.notifyDataSetChanged();
+                staticRvAdapter.notifyDataSetChanged();
 
             }
 
@@ -183,6 +227,8 @@ public class HomeFragment extends Fragment {
         });
 
     }
+
+
 
     public void seleccionOfertas(ArrayList<DynamicRVModel> listaOfertas, int id_user, String categoria, ViewGroup root, RecyclerView drv, View v){
         if (item.get(recyclerView.getChildAdapterPosition(v)).getTxt()
@@ -234,7 +280,7 @@ public class HomeFragment extends Fragment {
     public void recibirCategorias(ArrayList<StaticRvModel> listaOfertas){
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.140:8080/")
+                .baseUrl("http://192.168.1.134:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -280,6 +326,7 @@ public class HomeFragment extends Fragment {
                     }
                     listaOfertas.add(new StaticRvModel(image,u.getCategoria()));
                 }
+                staticRvAdapter.notifyDataSetChanged();
 
             }
 

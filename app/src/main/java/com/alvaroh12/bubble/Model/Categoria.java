@@ -11,6 +11,10 @@ public class Categoria {
         this.categoria = categoria;
     }
 
+    public Categoria(String categoria) {
+        this.categoria = categoria;
+    }
+
     public int getId_categoria() {
         return id_categoria;
     }
@@ -25,5 +29,10 @@ public class Categoria {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        return categoria;
     }
 }

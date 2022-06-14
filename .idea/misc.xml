@@ -7,28 +7,37 @@
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/button_bg.xml" value="0.104" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/dit_text_bg.xml" value="0.104" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/dynamic_rv_bg.xml" value="0.115" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/home_icon.xml" value="0.1085" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/notification_icon.xml" value="0.1085" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/search_bg.xml" value="0.115" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/splash.xml" value="0.139" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/static_rv_bg.xml" value="0.115" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/static_rv_selected_bg.xml" value="0.115" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/user_profile_icon.xml" value="0.1085" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/drawable/vie_bp.xml" value="0.104" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_add_oferta.xml" value="0.1859375" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_compra.xml" value="0.2" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_compraProfile.xml" value="0.1" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_compra_profile.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_home.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_introductoryactivity.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_oferta_profile.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_principal.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/activity_profile.xml" value="0.2" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/compras_fragment.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/drawer_menu.xml" value="0.15" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/dynamic_rv.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/dynamic_rv_progress_bar.xml" value="0.19895833333333332" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/empleos_fragment.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/fragment_compra.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/fragment_profile.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/item_option.xml" value="0.15833333333333333" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/login_tab_fragment.xml" value="0.22" />
+        <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/ofertas_fragment.xml" value="0.17209302325581396" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/signup_tab_fragment.xml" value="0.19895833333333332" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/layout/static_rv_item.xml" value="0.2" />
         <entry key="..\:/Users/6002128/AndroidStudioProjects/Bubble/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.104" />
@@ -40,5 +49,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22" />
+      </ProjectState>
+    </option>
   </component>
 </project>

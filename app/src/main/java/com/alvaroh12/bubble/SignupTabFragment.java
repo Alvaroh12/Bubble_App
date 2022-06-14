@@ -58,7 +58,7 @@ public class SignupTabFragment extends Fragment {
         String correo = email.getText().toString().trim();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.135:8080/")
+                .baseUrl("http://192.168.1.134:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -106,7 +106,7 @@ public class SignupTabFragment extends Fragment {
         if (contra.equals(confirm)){
             Usuario user = new Usuario(nombre,correo, confirm );
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.1.135:8080/")
+                    .baseUrl("http://192.168.1.134:8080/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
