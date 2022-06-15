@@ -171,7 +171,7 @@ public class HomeFragment extends Fragment {
 
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.134:8080/")
+                .baseUrl(getString(R.string.ip))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -201,7 +201,7 @@ public class HomeFragment extends Fragment {
     public void recibirOfertasByCategoria(ArrayList<DynamicRVModel> listaOfertas, int id_user, String categoria){
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.134:8080/")
+                .baseUrl(getString(R.string.ip))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -280,7 +280,7 @@ public class HomeFragment extends Fragment {
     public void recibirCategorias(ArrayList<StaticRvModel> listaOfertas){
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.134:8080/")
+                .baseUrl(getString(R.string.ip))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

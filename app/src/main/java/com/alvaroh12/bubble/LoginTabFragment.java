@@ -72,7 +72,7 @@ public class LoginTabFragment extends Fragment {
         String correo = email.getText().toString().trim();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.134:8080/")
+                .baseUrl(getString(R.string.ip))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
